@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tower of Hanoi</title>
+</head>
+<body>
+    <h1> Tower of Hanoi for n=7:</h1>
+    <div id="output"></div>
+
+    <script>
+        function hanoi(n, start, end, temp) {
+            if (n === 1) {
+                document.getElementById('output').innerHTML += `Move disc 1 from ${start} to ${end}<br>`;
+            } else {
+                hanoi(n - 1, start, temp, end);
+                document.getElementById('output').innerHTML += `Move disc ${n} from ${start} to ${end}<br>`;
+                hanoi(n - 1, temp, end, start);
+            }
+        }
+
+        hanoi(7, 'A', 'C', 'B');
+    </script>
+</body>
+</html>
